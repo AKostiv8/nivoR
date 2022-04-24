@@ -15,6 +15,13 @@ function AreaBump() {
         spacing={8}
         colors={{ scheme: 'nivo' }}
         blendMode="multiply"
+        onClick={(data) => {
+                localStorage.clear();
+                localStorage.setItem('shinyStore-ex2\\areabump_clicked', JSON.stringify(data));
+                console.log(
+                    data
+                );
+        }}
         defs={[
             {
                 id: 'dots',

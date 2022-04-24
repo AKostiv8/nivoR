@@ -5,7 +5,7 @@
 #' @import htmlwidgets
 #'
 #' @export
-areabump <- function(..., width = NULL, height = NULL, elementId = NULL) {
+areabump <- function(elementId, width = NULL, height = NULL, ...) {
 
   # describe a React component to send to the browser for rendering.
   # component <- reactR::reactMarkup(htmltools::tag("div", list(message)))

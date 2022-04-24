@@ -8,9 +8,12 @@
     "@nivo/tooltip": "^0.79.0",
     "@react-spring/web": "9.3.1",
     "core-js": "3",
+    "install": "^0.13.0",
+    "npm": "^8.7.0",
     "prop-types": "^15.8.1",
     "react": "^16.14.0",
     "react-dom": "^16.8.0",
+    "react-icons": "^4.3.1",
     "regenerator-runtime": "^0.13.9"
   },
   "devDependencies": {

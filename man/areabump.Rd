@@ -4,7 +4,7 @@
 \alias{areabump}
 \title{<Add Title>}
 \usage{
-areabump(message, width = NULL, height = NULL, elementId = NULL)
+areabump(elementId, width = NULL, height = NULL, ...)
 }
 \description{
 <Add Description>

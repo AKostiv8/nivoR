@@ -74,3 +74,8 @@ typings/
 
 # FuseBox cache
 .fusebox/
+
+# R
+*.Rproj
+.Rproj.user
+node_modules

@@ -2,5 +2,8 @@
 
 export(areabump)
 export(areabumpOutput)
+export(choropleth)
+export(choroplethOutput)
 export(renderAreabump)
+export(renderChoropleth)
 import(htmlwidgets)

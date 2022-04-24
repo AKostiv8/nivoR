@@ -1,14 +1,14 @@
 library(shiny)
-library(nivoR)
+library(choropleth)
 
 ui <- fluidPage(
   titlePanel("reactR HTMLWidget Example"),
-  areabumpOutput('widgetOutput')
+  choroplethOutput('widgetOutput')
 )
 
 server <- function(input, output, session) {
-  output$widgetOutput <- renderAreabump(
-    areabump("Hello world!")
+  output$widgetOutput <- renderChoropleth(
+    choropleth("Hello world!")
   )
 }
 
