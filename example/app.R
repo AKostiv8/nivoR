@@ -18,9 +18,9 @@ server <- function(input, output, session) {
   )
 
   output$mapOutput <- renderChoropleth(
-    choropleth(data = read_json('../../../../audio_recorder/src/nivo/countries.json'),
-               polygon_json = read_json('../srcjs/test.json'),
-               projectionType = 'stereographic'
+    choropleth(data = '../../../../audio_recorder/src/nivo/countries.json',
+               polygon_json = '../srcjs/test.json',
+               projectionType = 'orthographic'
                )
   )
   # observe({

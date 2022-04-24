@@ -30,8 +30,8 @@ choropleth <- function(
   # describe a React component to send to the browser for rendering.
   # component <- reactR::reactMarkup(htmltools::tag("div", list(message)))
   configuration <- list(
-    data               = jsonlite::toJSON(data),
-    polygon_json       = jsonlite::toJSON(polygon_json),
+    data               = jsonlite::toJSON(fromJSON(data)),
+    polygon_json       = jsonlite::toJSON(fromJSON(polygon_json)),
     projectionType     = projectionType,
     # projectionScale    = projectionScale,
     ...

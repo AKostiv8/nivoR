@@ -8,8 +8,12 @@ import country from "./test.json";
 
 function Choropleth(props) {
   //console.log(props.polygon_json)
-  console.log(props)
-  //console.log(props.data)
+  // console.log(props)
+  // console.log('Props:')
+  // console.log(props.polygon_json)
+  // console.log('Constant:')
+  // console.log(country)
+
 
     const [rotateMap, setRotateMap] = useState(0);
     const [isActive, setIsActive] = useState(true);
@@ -52,7 +56,7 @@ function Choropleth(props) {
 
       <ResponsiveChoropleth
           data={props.data}
-          features={props.polygon_json.features}
+          features={(props.polygon_json).features}
           margin={{ top: 0, right: 0, bottom: 0, left: 0 }}
           colors={['#9b0034']}
           domain={[ 0, 1000000 ]}
