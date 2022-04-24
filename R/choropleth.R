@@ -5,11 +5,39 @@
 #' @import htmlwidgets
 #'
 #' @export
-choropleth <- function(..., width = NULL, height = NULL, elementId = NULL) {
+choropleth <- function(
+  data,
+  polygon_json,
+  projectionType = c('azimuthalEqualArea',
+                     'azimuthalEquidistant',
+                     'gnomonic',
+                     'orthographic',
+                     'stereographic',
+                     'equalEarth',
+                     'equirectangular',
+                     'mercator',
+                     'transverseMercator',
+                     'naturalEarth1'),
+  projectionScale = 200,
+  interective_rotate = FALSE,
+  ...,
+  width = NULL,
+  height = NULL,
+  elementId = NULL
+  ) {
 
+  projectionType <- match.arg(projectionType)
   # describe a React component to send to the browser for rendering.
   # component <- reactR::reactMarkup(htmltools::tag("div", list(message)))
-  component <- reactR::reactMarkup(reactR::component("ChoroplethTag", list(...)))
+  configuration <- list(
+    data               = jsonlite::toJSON(data),
+    polygon_json       = jsonlite::toJSON(polygon_json),
+    projectionType     = projectionType,
+    # projectionScale    = projectionScale,
+    ...
+  )
+
+  component <- reactR::reactMarkup(reactR::component("ChoroplethTag", configuration))
 
 
   # create widget

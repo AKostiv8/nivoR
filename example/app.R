@@ -1,6 +1,8 @@
 library(shiny)
 library(nivoR)
 library(shinyStore)
+library(jsonlite)
+library(tidyverse)
 
 ui <- fluidPage(
   titlePanel("reactR HTMLWidget Example"),
@@ -16,7 +18,10 @@ server <- function(input, output, session) {
   )
 
   output$mapOutput <- renderChoropleth(
-    choropleth("Test!")
+    choropleth(data = read_json('../../../../audio_recorder/src/nivo/countries.json'),
+               polygon_json = read_json('../srcjs/test.json'),
+               projectionType = 'stereographic'
+               )
   )
   # observe({
   #   print(input$foo)

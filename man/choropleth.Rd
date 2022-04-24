@@ -4,7 +4,19 @@
 \alias{choropleth}
 \title{<Add Title>}
 \usage{
-choropleth(..., width = NULL, height = NULL, elementId = NULL)
+choropleth(
+  data,
+  polygon_json,
+  projectionType = c("azimuthalEqualArea", "azimuthalEquidistant", "gnomonic",
+    "orthographic", "stereographic", "equalEarth", "equirectangular", "mercator",
+    "transverseMercator", "naturalEarth1"),
+  projectionScale = 200,
+  interective_rotate = FALSE,
+  ...,
+  width = NULL,
+  height = NULL,
+  elementId = NULL
+)
 }
 \description{
 <Add Description>
