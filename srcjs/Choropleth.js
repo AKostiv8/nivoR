@@ -7,7 +7,7 @@ import country from "./test.json";
 
 
 function Choropleth(props) {
-  //console.log(props.polygon_json)
+  console.log(props.interective_rotate)
   // console.log(props)
   // console.log('Props:')
   // console.log(props.polygon_json)
@@ -16,7 +16,7 @@ function Choropleth(props) {
 
 
     const [rotateMap, setRotateMap] = useState(0);
-    const [isActive, setIsActive] = useState(true);
+    const [isActive, setIsActive] = useState(props.interective_rotate);
     const [direction, setDirection] = useState('left')
 
     function toggle() {

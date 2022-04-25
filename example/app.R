@@ -6,20 +6,20 @@ library(tidyverse)
 
 ui <- fluidPage(
   titlePanel("reactR HTMLWidget Example"),
-  areabumpOutput('widgetOutput'),
+  # areabumpOutput('widgetOutput'),
   choroplethOutput('mapOutput'),
-  tags$script(src = "script.js")
+  # tags$script(src = "script.js")
 
 )
 
 server <- function(input, output, session) {
-  output$widgetOutput <- renderAreabump(
-    areabump("Hello world!")
-  )
+  # output$widgetOutput <- renderAreabump(
+  #   areabump("Hello world!")
+  # )
 
   output$mapOutput <- renderChoropleth(
     choropleth(data = '../../../../audio_recorder/src/nivo/countries.json',
-               polygon_json = '../srcjs/test.json',
+               polygon_json = '../srcjs/test.json',elementId = 'rr',
                projectionType = 'orthographic'
                )
   )

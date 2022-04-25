@@ -2,8 +2,8 @@
     "sortOrder": [
         {
             "columnIndex": 2,
-            "ascending": true
+            "ascending": false
         }
     ],
-    "path": "~/Documents/GitHub/portfolio/nivoR/srcjs"
+    "path": "~/Documents/GitHub/portfolio/nivoR/inst/htmlwidgets"
 }

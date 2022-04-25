@@ -4,7 +4,7 @@ module.exports = {
     entry: ["regenerator-runtime/runtime.js", path.join(__dirname, 'srcjs', 'main.jsx')],
     output: {
         path: path.join(__dirname, 'inst/htmlwidgets'),
-        filename: 'areabump.js'
+        filename: 'main.js'
     },
     module: {
         rules: [{
