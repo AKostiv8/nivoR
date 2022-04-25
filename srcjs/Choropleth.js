@@ -2,20 +2,17 @@ import React, { useState, useEffect } from 'react';
 import { BsPauseCircle, BsPlayCircle } from "react-icons/bs";
 import { IconContext } from "react-icons";
 import { ResponsiveChoropleth } from '@nivo/geo';
-import { data_globe } from "./data_globe";
-import country from "./test.json";
 
 
 function Choropleth(props) {
-  console.log(props.interective_rotate)
+  // console.log(props.interective_rotate)
   // console.log(props)
   // console.log('Props:')
   // console.log(props.polygon_json)
   // console.log('Constant:')
   // console.log(country)
 
-
-    const [rotateMap, setRotateMap] = useState(0);
+    const [rotateMap, setRotateMap] = useState(props.rotate_x);
     const [isActive, setIsActive] = useState(props.interective_rotate);
     const [direction, setDirection] = useState('left')
 
@@ -47,8 +44,8 @@ function Choropleth(props) {
 
 
     return(
-    <div style={{height: '400px'}}>
-      <IconContext.Provider value={{ color: "white", className: "global-class-name" }}>
+    <div style={{height: props.height}}>
+      <IconContext.Provider value={{ color: props.pausePlayBTNcolor, className: "global-class-name" }}>
           <div onClick={toggle}>
               {isActive ? <BsPauseCircle /> : <BsPlayCircle />}
           </div>
@@ -57,20 +54,23 @@ function Choropleth(props) {
       <ResponsiveChoropleth
           data={props.data}
           features={(props.polygon_json).features}
-          margin={{ top: 0, right: 0, bottom: 0, left: 0 }}
-          colors={['#9b0034']}
+          margin={{ top: props.margin_top,
+                    right: props.margin_right,
+                    bottom: props.margin_bottom,
+                    left: props.margin_left }}
+          colors={[props.polygonColors]}
           domain={[ 0, 1000000 ]}
-          unknownColor="#666666"
+          unknownColor={props.unknownColor}
           label="properties.name"
           valueFormat=".2s"
           projectionType={props.projectionType}
-          projectionScale={200}
-          projectionTranslation={[ 0.4, 0.5 ]}
-          projectionRotation={[ rotateMap, -5, 0 ]}
+          projectionScale={props.projectionScale}
+          projectionTranslation={[ props.projectionTranslation_x, props.projectionTranslation_y ]}
+          projectionRotation={[ rotateMap, props.rotate_y, props.rotate_z ]}
           enableGraticule={true}
           graticuleLineColor="#dddddd"
-          borderWidth={0.5}
-          borderColor="#989627"
+          borderWidth={props.border_width}
+          borderColor={props.border_Color}
           tooltip={e => {
               return (
                   <div
@@ -89,7 +89,7 @@ function Choropleth(props) {
                       {e.feature.properties.name}:{" "}
                       {e.feature.value
                           ? e.feature.value.toLocaleString()
-                          : "No race data"}
+                          : props.tooltipText}
                   </div>
               );
           }}

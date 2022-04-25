@@ -11,11 +11,26 @@ choropleth(
     "orthographic", "stereographic", "equalEarth", "equirectangular", "mercator",
     "transverseMercator", "naturalEarth1"),
   projectionScale = 200,
-  interective_rotate = FALSE,
-  ...,
+  interective_rotate = TRUE,
+  projectionTranslation_x = 0.5,
+  projectionTranslation_y = 0.5,
+  rotate_x = 0,
+  rotate_y = 0,
+  rotate_z = 0,
+  border_width = 0.5,
+  border_Color = "#989627",
   width = NULL,
-  height = NULL,
-  elementId = NULL
+  height = "400px",
+  margin_top = 0,
+  margin_left = 0,
+  margin_right = 0,
+  margin_bottom = 0,
+  unknownColor = "#666666",
+  tooltipText,
+  polygonColors = "#9b0034",
+  pausePlayBTNcolor = "black",
+  elementId = NULL,
+  ...
 )
 }
 \description{

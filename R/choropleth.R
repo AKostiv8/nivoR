@@ -19,20 +19,54 @@ choropleth <- function(
                      'transverseMercator',
                      'naturalEarth1'),
   projectionScale = 200,
-  interective_rotate = FALSE,
-  ...,
+  interective_rotate = TRUE,
+  projectionTranslation_x = 0.5,
+  projectionTranslation_y = 0.5,
+  rotate_x = 0,
+  rotate_y = 0,
+  rotate_z = 0,
+  border_width = 0.5,
+  border_Color="#989627",
   width = NULL,
-  height = NULL,
-  elementId = NULL
+  height = '400px',
+  margin_top = 0,
+  margin_left = 0,
+  margin_right = 0,
+  margin_bottom = 0,
+  unknownColor="#666666",
+  tooltipText,
+  polygonColors = '#9b0034',
+  pausePlayBTNcolor = 'black',
+  elementId = NULL,
+  ...
   ) {
 
   projectionType <- match.arg(projectionType)
   # describe a React component to send to the browser for rendering.
   # component <- reactR::reactMarkup(htmltools::tag("div", list(message)))
+
+
   configuration <- list(
-    data               = jsonlite::toJSON(jsonlite::fromJSON(data)),
-    polygon_json       = jsonlite::toJSON(jsonlite::fromJSON(polygon_json)),
-    projectionType     = projectionType,
+    data                    = jsonlite::toJSON(jsonlite::fromJSON(data)),
+    polygon_json            = jsonlite::toJSON(jsonlite::fromJSON(polygon_json)),
+    projectionType          = projectionType,
+    height                  = height,
+    projectionScale         = projectionScale,
+    projectionTranslation_x = projectionTranslation_x,
+    projectionTranslation_y = projectionTranslation_y,
+    rotate_x                = rotate_x,
+    rotate_y                = rotate_y,
+    rotate_z                = rotate_z,
+    border_width            = border_width,
+    unknownColor            = unknownColor,
+    border_Color            = border_Color,
+    margin_top              = margin_top,
+    margin_left             = margin_left,
+    margin_right            = margin_right,
+    margin_bottom           = margin_bottom,
+    tooltipText             = tooltipText,
+    polygonColors           = polygonColors,
+    pausePlayBTNcolor       = pausePlayBTNcolor,
     # projectionScale    = projectionScale,
     ...
   )
