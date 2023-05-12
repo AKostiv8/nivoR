@@ -1,3 +1,5 @@
+^renv$
+^renv\.lock$
 ^nivoR\.Rproj$
 ^\.Rproj\.user$
 ^node_modules$
@@ -6,3 +8,6 @@
 ^package\.json$
 ^webpack\.config\.js$
 ^yarn\.lock$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$

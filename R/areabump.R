@@ -1,4 +1,4 @@
-#' <Add Title>
+#' AreaBump
 #'
 #' <Add Description>
 #'

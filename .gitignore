@@ -79,3 +79,11 @@ typings/
 *.Rproj
 .Rproj.user
 node_modules
+*.Rproj.user/*
+.Rproj.user/92C2E8E5/*
+
+# RStudio files
+*.Rproj.user/
+.Rproj.user/shared/notebooks/paths
+.Rproj.user
+docs

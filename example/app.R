@@ -90,29 +90,30 @@ server <- function(input, output, session) {
 
   output$mapOutput <- renderChoropleth(
     choropleth(data = './data_globe.json',
-               polygon_json = './test.json',
                projectionType = 'orthographic',
+               map_id = 'globalMap',
                projectionScale = input$projectionScale,
                projectionTranslation_x = input$projectionTranslation_x,
                projectionTranslation_y = input$projectionTranslation_y,
                tooltipText = input$tooltipID,
-               interective_rotate = FALSE,
                rotate_y = input$projectionRotation_y,
                rotate_z = input$projectionRotation_z,
                border_width = input$borderWidth,
-               polygonColors = input$pol_col,
-               unknownColor = input$nodata_col,
-               border_Color = input$border_col
+               polygonColors = 'oranges',
+               unknownColor = '#EBEBEB',
+               border_Color = '#595959',
+               domainMin = 0,
+               domainMax = 100000
                )
   )
 
   output$widgetOutput <- renderAreabump(
-    areabump("test")
+    areabump('test')
   )
 
-  # observe({
-  #   print(input$foo)
-  # })
+  observeEvent(input$globalMap, {
+    print(input$globalMap)
+  })
 
   observeEvent(input$foo, {
     output$areaSelected <- renderText({

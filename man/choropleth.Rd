@@ -2,21 +2,23 @@
 % Please edit documentation in R/choropleth.R
 \name{choropleth}
 \alias{choropleth}
-\title{<Add Title>}
+\title{Choropleth}
 \usage{
 choropleth(
+  map_id,
   data,
-  polygon_json,
+  polygon_json = nivoR::world_countries_json,
   projectionType = c("azimuthalEqualArea", "azimuthalEquidistant", "gnomonic",
     "orthographic", "stereographic", "equalEarth", "equirectangular", "mercator",
     "transverseMercator", "naturalEarth1"),
   projectionScale = 200,
-  interective_rotate = TRUE,
   projectionTranslation_x = 0.5,
   projectionTranslation_y = 0.5,
   rotate_x = 0,
   rotate_y = 0,
   rotate_z = 0,
+  domainMin = 0,
+  domainMax = 1e+06,
   border_width = 0.5,
   border_Color = "#989627",
   width = NULL,
@@ -34,5 +36,7 @@ choropleth(
 )
 }
 \description{
+\if{html}{\out{
 <Add Description>
+}}
 }

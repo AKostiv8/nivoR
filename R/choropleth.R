@@ -1,4 +1,4 @@
-#' <Add Title>
+#' Choropleth
 #'
 #' <Add Description>
 #'
@@ -6,8 +6,9 @@
 #'
 #' @export
 choropleth <- function(
+  map_id,
   data,
-  polygon_json,
+  polygon_json = nivoR::world_countries_json,
   projectionType = c('azimuthalEqualArea',
                      'azimuthalEquidistant',
                      'gnomonic',
@@ -19,12 +20,13 @@ choropleth <- function(
                      'transverseMercator',
                      'naturalEarth1'),
   projectionScale = 200,
-  interective_rotate = TRUE,
   projectionTranslation_x = 0.5,
   projectionTranslation_y = 0.5,
   rotate_x = 0,
   rotate_y = 0,
   rotate_z = 0,
+  domainMin = 0,
+  domainMax = 1000000,
   border_width = 0.5,
   border_Color="#989627",
   width = NULL,
@@ -44,11 +46,16 @@ choropleth <- function(
   projectionType <- match.arg(projectionType)
   # describe a React component to send to the browser for rendering.
   # component <- reactR::reactMarkup(htmltools::tag("div", list(message)))
-
+  if(projectionType == 'orthographic') {
+    interective_rotate <- TRUE
+  } else {
+    interective_rotate <- FALSE
+  }
 
   configuration <- list(
+    map_id                  = map_id,
     data                    = jsonlite::toJSON(jsonlite::fromJSON(data)),
-    polygon_json            = jsonlite::toJSON(jsonlite::fromJSON(polygon_json)),
+    polygon_json            = polygon_json,
     projectionType          = projectionType,
     height                  = height,
     projectionScale         = projectionScale,
@@ -67,6 +74,9 @@ choropleth <- function(
     tooltipText             = tooltipText,
     polygonColors           = polygonColors,
     pausePlayBTNcolor       = pausePlayBTNcolor,
+    interective_rotate      = interective_rotate,
+    domainMin               = domainMin,
+    domainMax               = domainMax,
     # projectionScale    = projectionScale,
     ...
   )

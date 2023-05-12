@@ -2,10 +2,12 @@
 % Please edit documentation in R/areabump.R
 \name{areabump}
 \alias{areabump}
-\title{<Add Title>}
+\title{AreaBump}
 \usage{
 areabump(elementId, width = NULL, height = NULL, ...)
 }
 \description{
+\if{html}{\out{
 <Add Description>
+}}
 }
